@@ -7,14 +7,10 @@ on:
       - completed
 
 jobs:
-  test-solution:
+  deploy-solution:
+    if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-
     steps:
-    - name: Display result of "Test solution"
-      run: |
-          echo "Build solution result: ${{ github.event.workflow_run.conclusion }}"
     - name: "Deploy"
       run: |
-          echo "Execute code to deploy"
-    
+          echo "Execute code to deploy"    
