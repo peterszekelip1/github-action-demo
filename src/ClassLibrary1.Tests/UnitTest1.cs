@@ -11,6 +11,6 @@ public class UnitTest1
         
         var result = calculator.Add(1, 2);
         
-        Assert.Equal(3, result);
+        Assert.Equal(4, result);
     }
 }

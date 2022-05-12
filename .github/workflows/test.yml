@@ -3,7 +3,6 @@ name: Test solution
 on:
   workflow_run:
     workflows: ["Build solution"]
-    branches: [main]
     types:
       - completed
 
@@ -12,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Display result
+    - name: Display result of "Build solution"
       run: |
-          echo "Workflow run result: ${{ github.event.workflow_run.conclusion }}"
+          echo "Build solution result: ${{ github.event.workflow_run.conclusion }}"
     - uses: actions/checkout@v3
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
