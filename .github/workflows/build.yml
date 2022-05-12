@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-solution:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,6 +17,6 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ./src/GithubActionDemo.sln
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore ./src/GithubActionDemo.sln

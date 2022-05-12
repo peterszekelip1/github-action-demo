@@ -1,14 +1,14 @@
-name: Build solution
+name: Test solution
 
 on:
   workflow_run:
-    workflows: ["build"]
+    workflows: ["build-solution"]
     branches: [main]
     types:
       - completed
 
 jobs:
-  build:
+  test-solution:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,9 +17,5 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test ./src/GithubActionDemo.sln --verbosity normal
