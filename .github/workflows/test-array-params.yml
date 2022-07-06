@@ -1,0 +1,13 @@
+name: Test array params
+on:
+  push:
+    branches:
+      - "*"
+jobs:
+  test_array_params:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pass along array params
+        uses: .github/actions/execute-tests
+        with:
+          PROJECTS: "Test project name "

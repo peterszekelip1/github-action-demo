@@ -1,0 +1,13 @@
+name: 'Execute tests'
+description: 'Executes the tests'
+inputs:
+  PROJECTS:
+    description: 'The projects to execute'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        echo "test"
+      
+      shell: bash
